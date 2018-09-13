@@ -9,7 +9,7 @@ public class Beaver {
 		int ones = 0;
 		while(!currentState.equalsIgnoreCase("h")) {
 			
-			instruction4State(currentPosition,currentState);
+			instruction5State(currentPosition,currentState);
 			steps++;
 		}
 		
@@ -177,52 +177,99 @@ public static void instruction4State(LinkedNode position, String state) {
 	
 	if(state.equalsIgnoreCase("a")) {
 		if(position.getSymbol() == 0) {
-			
+			String direction = "r";
 			Beaver.currentState = "b";
 			Beaver.currentPosition.setSymbol(1);
-			if(position.getChildNode() == null) {
-				
-				Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
-				Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
+			
 		}
 		else if(position.getSymbol() == 1) {
+			String direction = "l";
 			Beaver.currentState ="b";
 			Beaver.currentPosition.setSymbol(1);
-			if(position.getParentNode() == null) {
-				Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
 		}
 	}
 	else if(state.equalsIgnoreCase("b")) {
 		
 		if(position.getSymbol() == 0) {
+			String direction = "l";
 			Beaver.currentState = "a";
 			Beaver.currentPosition.setSymbol(1);
-			if(position.getParentNode() == null) {
-				Beaver.currentPosition.setParentNode(new LinkedNode(0,null, Beaver.currentPosition));
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
 		}
 		else if(position.getSymbol() == 1) {
+			String direction = "l";
 			Beaver.currentState ="c";
 			Beaver.currentPosition.setSymbol(0);
-			if(position.getParentNode() == null) {
-				Beaver.currentPosition.setParentNode(new LinkedNode(0,null,Beaver.currentPosition));
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
 		}
 		
@@ -230,25 +277,49 @@ public static void instruction4State(LinkedNode position, String state) {
 	else if(state.equalsIgnoreCase("c")) {
 		
 		if(position.getSymbol() == 0) {
+			String direction = "l";
 			Beaver.currentState = "h";
 			Beaver.currentPosition.setSymbol(1);
-			if(position.getParentNode() == null) {
-				Beaver.currentPosition.setParentNode(new LinkedNode(0,null,Beaver.currentPosition));
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
 		}
 		else if(position.getSymbol() == 1) {
+			String direction = "l";
 			Beaver.currentState ="d";
 			Beaver.currentPosition.setSymbol(1);
-			if(position.getParentNode() == null) {
-				Beaver.currentPosition.setParentNode(new LinkedNode(0,null, Beaver.currentPosition));
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
 		}
 		
@@ -257,28 +328,307 @@ public static void instruction4State(LinkedNode position, String state) {
 	else if(state.equalsIgnoreCase("d")) {
 		
 		if(position.getSymbol() == 0) {
+			String direction = "r";
 			Beaver.currentState = "d";
 			Beaver.currentPosition.setSymbol(1);
-			if(position.getChildNode() == null) {
-				Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
-				Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
 		}
 		else if(position.getSymbol() == 1) {
+			String direction = "r";
 			Beaver.currentState ="a";
 			Beaver.currentPosition.setSymbol(0);
-			if(position.getChildNode() == null) {
-				Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
-				Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
 			}
-			else {
-				Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
 			}
 		}
 		
+	}
+	
+	
+}
+
+public static void instruction5State(LinkedNode position, String state) {
+	
+	if(state.equalsIgnoreCase("a")) {
+		if(position.getSymbol() == 0) {
+			String direction = "l";
+			Beaver.currentState = "b";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+			
+		}
+		else if(position.getSymbol() == 1) {
+			String direction = "l";
+			Beaver.currentState ="a";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
+	}
+	else if(state.equalsIgnoreCase("b")) {
+		
+		if(position.getSymbol() == 0) {
+			String direction = "r";
+			Beaver.currentState = "c";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
+		else if(position.getSymbol() == 1) {
+			String direction = "r";
+			Beaver.currentState ="b";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
+		
+	}
+	else if(state.equalsIgnoreCase("c")) {
+		
+		if(position.getSymbol() == 0) {
+			String direction = "l";
+			Beaver.currentState = "a";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
+		else if(position.getSymbol() == 1) {
+			String direction = "r";
+			Beaver.currentState ="d";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
+		
+	}
+	
+	else if(state.equalsIgnoreCase("d")) {
+		
+		if(position.getSymbol() == 0) {
+			String direction = "l";
+			Beaver.currentState = "a";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
+		else if(position.getSymbol() == 1) {
+			String direction = "r";
+			Beaver.currentState ="e";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
+		
+	}
+	if(state.equalsIgnoreCase("e")) {
+		if(position.getSymbol() == 0) {
+			String direction = "r";
+			Beaver.currentState = "h";
+			Beaver.currentPosition.setSymbol(1);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+			
+		}
+		else if(position.getSymbol() == 1) {
+			String direction = "r";
+			Beaver.currentState ="c";
+			Beaver.currentPosition.setSymbol(0);
+			if(direction.equalsIgnoreCase("r")) {
+				if(position.getChildNode() == null) {				
+					Beaver.currentPosition.setChildNode(new LinkedNode(0,Beaver.currentPosition,null));
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getChildNode();
+				}
+			}
+			else if(direction.equalsIgnoreCase("l")) {
+				if(position.getParentNode() == null) {
+					Beaver.currentPosition.setParentNode(new LinkedNode(0, null,Beaver.currentPosition));
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+				else {
+					Beaver.currentPosition = Beaver.currentPosition.getParentNode();
+				}
+			}
+		}
 	}
 	
 	
